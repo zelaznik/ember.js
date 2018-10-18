@@ -1,4 +1,5 @@
-import { moduleForComponent, test } from 'ember-qunit';<% if (testType === 'integration') { %>
+import { moduleForComponent, test } from 'ember-qunit';
+import { find } from 'ember-native-dom-helpers';<% if (testType === 'integration') { %>
 import hbs from 'htmlbars-inline-precompile';<% } %>
 
 moduleForComponent('<%= componentPathName %>', '<%= friendlyTestDescription %>', {
@@ -13,7 +14,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{<%= componentPathName %>}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(find('').textContent.trim(), '');
 
   // Template block usage:
   this.render(hbs`
@@ -22,10 +23,10 @@ test('it renders', function(assert) {
     {{/<%= componentPathName %>}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');<% } else if(testType === 'unit') { %>
+  assert.equal(find('').textContent.trim(), 'template block text');<% } else if(testType === 'unit') { %>
   // Creates the component instance
   /*let component =*/ this.subject();
   // Renders the component to the page
   this.render();
-  assert.equal(this.$().text().trim(), '');<% } %>
+  assert.equal(find('').textContent.trim(), '');<% } %>
 });

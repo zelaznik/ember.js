@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 <% if (testType == 'integration') { %>import { describe, it } from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
+import { find } from 'ember-native-dom-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 describe('<%= friendlyTestName %>', function() {
@@ -21,7 +22,7 @@ describe('<%= friendlyTestName %>', function() {
 
     this.render(hbs`{{<%= dasherizedModuleName %> inputValue}}`);
 
-    expect(this.$().text().trim()).to.equal('1234');
+    expect(find('').textContent.trim()).to.equal('1234');
   });
 });
 <% } else if (testType == 'unit') { %>import { describe, it } from 'mocha';

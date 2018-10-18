@@ -1,4 +1,5 @@
 <% if (testType == 'integration') { %>import { moduleForComponent, test } from 'ember-qunit';
+import { find } from 'ember-native-dom-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('<%= dasherizedModuleName %>', 'helper:<%= dasherizedModuleName %>', {
@@ -11,7 +12,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{<%= dasherizedModuleName %> inputValue}}`);
 
-  assert.equal(this.$().text().trim(), '1234');
+  assert.equal(find('').textContent.trim(), '1234');
 });<% } else if (testType == 'unit') { %>
 import { <%= camelizedModuleName %> } from '<%= dasherizedModulePrefix %>/helpers/<%= dasherizedModuleName %>';
 import { module, test } from 'qunit';

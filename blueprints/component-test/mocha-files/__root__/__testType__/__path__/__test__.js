@@ -1,5 +1,6 @@
 import { expect } from 'chai';
-import { describeComponent, it } from 'ember-mocha';<% if (testType === 'integration') { %>
+import { describeComponent, it } from 'ember-mocha';
+import { findAll } from 'ember-native-dom-helpers';<% if (testType === 'integration') { %>
 import hbs from 'htmlbars-inline-precompile';<% } %>
 
 describeComponent('<%= componentPathName %>', '<%= friendlyTestDescription %>',
@@ -20,12 +21,12 @@ describeComponent('<%= componentPathName %>', '<%= friendlyTestDescription %>',
       // `);
 
       this.render(hbs`{{<%= dasherizedModuleName %>}}`);
-      expect(this.$()).to.have.length(1);<% } else if(testType === 'unit') { %>// creates the component instance
+      expect(findAll('')).to.have.length(1);<% } else if(testType === 'unit') { %>// creates the component instance
       let component = this.subject();
       // renders the component on the page
       this.render();
       expect(component).to.be.ok;
-      expect(this.$()).to.have.length(1);<% } %>
+      expect(findAll('')).to.have.length(1);<% } %>
     });
   }
 );
