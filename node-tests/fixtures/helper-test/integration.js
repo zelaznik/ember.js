@@ -1,4 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import { find } from 'ember-native-dom-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('foo/bar-baz', 'helper:foo/bar-baz', {
@@ -11,5 +12,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{foo/bar-baz inputValue}}`);
 
-  assert.equal(this.$().text().trim(), '1234');
+  assert.equal(find('').textContent.trim(), '1234');
 });

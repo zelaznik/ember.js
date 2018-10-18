@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 
 import { describeComponent, it } from 'ember-mocha';
+import { find } from 'ember-native-dom-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 describeComponent('foo/bar-baz', 'helper:foo/bar-baz',
@@ -21,7 +22,7 @@ describeComponent('foo/bar-baz', 'helper:foo/bar-baz',
 
       this.render(hbs`{{foo/bar-baz inputValue}}`);
 
-      expect(this.$().text().trim()).to.equal('1234');
+      expect(find('').textContent.trim()).to.equal('1234');
     });
   }
 );

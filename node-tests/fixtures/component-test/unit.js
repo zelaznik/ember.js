@@ -1,4 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import { find } from 'ember-native-dom-helpers';
 
 moduleForComponent('x-foo', 'Unit | Component | x-foo', {
   // Specify the other units that are required for this test
@@ -12,5 +13,5 @@ test('it renders', function(assert) {
   /*let component =*/ this.subject();
   // Renders the component to the page
   this.render();
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(find('').textContent.trim(), '');
 });

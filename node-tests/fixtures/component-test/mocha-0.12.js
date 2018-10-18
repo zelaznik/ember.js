@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
+import { findAll } from 'ember-native-dom-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 describe('Integration | Component | x-foo', function() {
@@ -19,6 +20,6 @@ describe('Integration | Component | x-foo', function() {
     // `);
 
     this.render(hbs`{{x-foo}}`);
-    expect(this.$()).to.have.length(1);
+    expect(findAll('')).to.have.length(1);
   });
 });
